@@ -20,56 +20,62 @@ is_a: LSFO:0000000 ! root node
 [Term]
 id: LSFO:7770002
 name: Beamline
-def: "An experimental station and its beam delivery system at a light source facility." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
+def: "An experimental station and its beam delivery system at a light source facility." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/, PMID:28875180]
 is_a: LSFO:0000000 ! root node
+relationship: LSFO:7770102 LSFO:7770003 ! has_beam Beam
+relationship: LSFO:7770104 LSFO:7770009 ! has_component Monochromator
+relationship: LSFO:7770104 LSFO:7770010 ! has_component Mirror
 
 [Term]
 id: LSFO:7770003
 name: Beam
-def: "The radiation beam used in an experiment, with properties like energy and polarization." [https://als.lbl.gov/beamlines/4-0-2/]
+def: "The radiation beam used in an experiment, with properties like energy and polarization." [https://als.lbl.gov/beamlines/4-0-2/, PMID:25931002]
 is_a: LSFO:0000000 ! root node
+relationship: LSFO:7770103 LSFO:7770005 ! has_property Beam energy range
+relationship: LSFO:7770103 LSFO:7770006 ! has_property Beam polarization
+relationship: LSFO:7770103 LSFO:7770007 ! has_property Beam flux
 
 [Term]
 id: LSFO:7770004
-name: Sample
-def: "The material sample or specimen studied in an experiment." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
+name: Beam property
+def: "A measurable characteristic or attribute of a beam at a light source facility." [PMID:25931002]
 is_a: LSFO:0000000 ! root node
 
 [Term]
 id: LSFO:7770005
-name: Experimental apparatus
-def: "The equipment used in an experiment, including detectors and sample environments." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
-is_a: LSFO:0000000 ! root node
+name: Beam energy range
+def: "The range of energies present in a beam, typically measured in electron volts (eV) or kilo-electron volts (keV)." [PMID:25931002]
+is_a: LSFO:7770004 ! Beam property
 
 [Term]
 id: LSFO:7770006
-name: Detector
-def: "An instrument capturing data in an experiment, such as a camera or spectrometer." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
-is_a: LSFO:7770005 ! Experimental apparatus
+name: Beam polarization
+def: "The orientation of the electric field vector of the electromagnetic radiation in a beam." [PMID:28875180]
+is_a: LSFO:7770004 ! Beam property
 
 [Term]
 id: LSFO:7770007
-name: Sample environment
-def: "Apparatus controlling conditions during an experiment, such as a cryostat or pressure cell." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
-is_a: LSFO:7770005 ! Experimental apparatus
+name: Beam flux
+def: "The number of photons per second per unit area in a beam, often measured in photons/second/mm²." [PMID:26698070]
+is_a: LSFO:7770004 ! Beam property
 
 [Term]
 id: LSFO:7770008
-name: Experimental condition
-def: "Ambient or controlled conditions during an experimental run, such as temperature or pressure." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
+name: Beamline component
+def: "A physical part or element of a beamline that contributes to the generation, focusing, or manipulation of the beam." [PMID:28875180]
 is_a: LSFO:0000000 ! root node
 
 [Term]
 id: LSFO:7770009
-name: Experiment metadata
-def: "Additional contextual information about an experiment, such as purpose, operator, date, or scheduling information." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
-is_a: LSFO:0000000 ! root node
+name: Monochromator
+def: "A beamline component that selects a specific wavelength or energy range from a polychromatic beam." [PMID:28875180]
+is_a: LSFO:7770008 ! Beamline component
 
 [Term]
 id: LSFO:7770010
-name: Raw data
-def: "The primary data collected in an experiment, such as images, spectra, or diffraction patterns." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
-is_a: LSFO:0000000 ! root node
+name: Mirror
+def: "A beamline component with a reflective surface used to direct, focus, or shape the beam." [PMID:26698070]
+is_a: LSFO:7770008 ! Beamline component
 
 [Term]
 id: LSFO:7770011
@@ -93,23 +99,23 @@ range: LSFO:7770002 ! Beamline
 [Typedef]
 id: LSFO:7770102
 name: has_beam
-def: "Relation between an experiment and the radiation beam used." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
-domain: LSFO:7770001 ! Experiment
+def: "Relation between a beamline and the beam it produces." [PMID:25931002]
+domain: LSFO:7770002 ! Beamline
 range: LSFO:7770003 ! Beam
 
 [Typedef]
 id: LSFO:7770103
-name: has_sample
-def: "Relation between an experiment and the material sample studied." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
-domain: LSFO:7770001 ! Experiment
-range: LSFO:7770004 ! Sample
+name: has_property
+def: "Relation between a beam and one of its properties." [PMID:25931002]
+domain: LSFO:7770003 ! Beam
+range: LSFO:7770004 ! Beam property
 
 [Typedef]
 id: LSFO:7770104
-name: has_apparatus
-def: "Relation between an experiment and the experimental apparatus used." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
-domain: LSFO:7770001 ! Experiment
-range: LSFO:7770005 ! Experimental apparatus
+name: has_component
+def: "Relation between a beamline and one of its physical components." [PMID:28875180]
+domain: LSFO:7770002 ! Beamline
+range: LSFO:7770008 ! Beamline component
 
 [Typedef]
 id: LSFO:7770105

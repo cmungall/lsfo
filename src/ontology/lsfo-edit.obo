@@ -1,19 +1,150 @@
 
 format-version: 1.2
-
-
 import: http://purl.obolibrary.org/obo/lsfo/imports/cob_import.owl
-
-
-
 ontology: lsfo
 property_value: http://purl.org/dc/terms/description "None" xsd:string
 property_value: http://purl.org/dc/terms/title "Light Source Facility Ontology" xsd:string
 property_value: http://purl.org/dc/terms/license https://creativecommons.org/licenses/unspecified
 
+
 [Term]
 id: LSFO:0000000
 name: root node
+
+[Term]
+id: LSFO:7770001
+name: Experiment
+def: "A specific experimental run or investigation conducted at a light source facility." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
+is_a: LSFO:0000000 ! root node
+
+[Term]
+id: LSFO:7770002
+name: Beamline
+def: "An experimental station and its beam delivery system at a light source facility." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
+is_a: LSFO:0000000 ! root node
+
+[Term]
+id: LSFO:7770003
+name: Beam
+def: "The radiation beam used in an experiment, with properties like energy and polarization." [https://als.lbl.gov/beamlines/4-0-2/]
+is_a: LSFO:0000000 ! root node
+
+[Term]
+id: LSFO:7770004
+name: Sample
+def: "The material sample or specimen studied in an experiment." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
+is_a: LSFO:0000000 ! root node
+
+[Term]
+id: LSFO:7770005
+name: Experimental apparatus
+def: "The equipment used in an experiment, including detectors and sample environments." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
+is_a: LSFO:0000000 ! root node
+
+[Term]
+id: LSFO:7770006
+name: Detector
+def: "An instrument capturing data in an experiment, such as a camera or spectrometer." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
+is_a: LSFO:7770005 ! Experimental apparatus
+
+[Term]
+id: LSFO:7770007
+name: Sample environment
+def: "Apparatus controlling conditions during an experiment, such as a cryostat or pressure cell." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
+is_a: LSFO:7770005 ! Experimental apparatus
+
+[Term]
+id: LSFO:7770008
+name: Experimental condition
+def: "Ambient or controlled conditions during an experimental run, such as temperature or pressure." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
+is_a: LSFO:0000000 ! root node
+
+[Term]
+id: LSFO:7770009
+name: Experiment metadata
+def: "Additional contextual information about an experiment, such as purpose, operator, date, or scheduling information." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
+is_a: LSFO:0000000 ! root node
+
+[Term]
+id: LSFO:7770010
+name: Raw data
+def: "The primary data collected in an experiment, such as images, spectra, or diffraction patterns." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
+is_a: LSFO:0000000 ! root node
+
+[Term]
+id: LSFO:7770011
+name: Processed data
+def: "Data that has been processed or analyzed from raw data." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
+is_a: LSFO:0000000 ! root node
+
+[Term]
+id: LSFO:7770012
+name: Analysis method
+def: "The data analysis or processing method applied to raw data, which produces processed data." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
+is_a: LSFO:0000000 ! root node
+
+[Typedef]
+id: LSFO:7770101
+name: has_beamline
+def: "Relation between an experiment and the beamline where it was conducted." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
+domain: LSFO:7770001 ! Experiment
+range: LSFO:7770002 ! Beamline
+
+[Typedef]
+id: LSFO:7770102
+name: has_beam
+def: "Relation between an experiment and the radiation beam used." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
+domain: LSFO:7770001 ! Experiment
+range: LSFO:7770003 ! Beam
+
+[Typedef]
+id: LSFO:7770103
+name: has_sample
+def: "Relation between an experiment and the material sample studied." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
+domain: LSFO:7770001 ! Experiment
+range: LSFO:7770004 ! Sample
+
+[Typedef]
+id: LSFO:7770104
+name: has_apparatus
+def: "Relation between an experiment and the experimental apparatus used." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
+domain: LSFO:7770001 ! Experiment
+range: LSFO:7770005 ! Experimental apparatus
+
+[Typedef]
+id: LSFO:7770105
+name: has_condition
+def: "Relation between an experiment and the experimental conditions." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
+domain: LSFO:7770001 ! Experiment
+range: LSFO:7770008 ! Experimental condition
+
+[Typedef]
+id: LSFO:7770106
+name: has_metadata
+def: "Relation between an experiment and its metadata." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
+domain: LSFO:7770001 ! Experiment
+range: LSFO:7770009 ! Experiment metadata
+
+[Typedef]
+id: LSFO:7770107
+name: has_output
+def: "Relation between an experiment and the raw data it produces." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
+domain: LSFO:7770001 ! Experiment
+range: LSFO:7770010 ! Raw data
+
+[Typedef]
+id: LSFO:7770108
+name: derived_into
+def: "Relation between raw data and the processed data derived from it." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
+domain: LSFO:7770010 ! Raw data
+range: LSFO:7770011 ! Processed data
+
+[Typedef]
+id: LSFO:7770109
+name: has_analysis
+def: "Relation between an experiment and the analysis method applied." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
+domain: LSFO:7770001 ! Experiment
+range: LSFO:7770012 ! Analysis method
 
 [Typedef]
 id: http://purl.org/dc/terms/description
@@ -21,13 +152,12 @@ name: description
 is_metadata_tag: true
 
 [Typedef]
-id: http://purl.org/dc/terms/title
-name: title
-is_metadata_tag: true
-
-[Typedef]
 id: http://purl.org/dc/terms/license
 name: license
 is_metadata_tag: true
 
+[Typedef]
+id: http://purl.org/dc/terms/title
+name: title
+is_metadata_tag: true
 

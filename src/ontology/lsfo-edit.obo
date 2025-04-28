@@ -82,6 +82,74 @@ name: Analysis method
 def: "The data analysis or processing method applied to raw data, which produces processed data." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
 is_a: LSFO:0000000 ! root node
 
+[Term]
+id: LSFO:7770020
+name: Experimental apparatus
+def: "Equipment used to conduct experiments at a light source facility, including instruments, detectors, and sample environments." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
+is_a: LSFO:0000000 ! root node
+
+[Term]
+id: LSFO:7770021
+name: Instrument
+def: "A device or tool used to perform specific measurements or manipulations in light source facility experiments." [https://als.lbl.gov/beamlines/4-0-2/]
+is_a: LSFO:7770020 ! Experimental apparatus
+relationship: LSFO:7770103 LSFO:7770022 ! has_property Instrument property
+
+[Term]
+id: LSFO:7770022
+name: Instrument property
+def: "A measurable characteristic or attribute of an instrument at a light source facility." []
+is_a: LSFO:0000000 ! root node
+
+[Term]
+id: LSFO:7770023
+name: Detector
+def: "A device that measures specific properties of particles or radiation resulting from interactions with a sample." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
+is_a: LSFO:7770021 ! Instrument
+
+[Term]
+id: LSFO:7770024
+name: Sample environment
+def: "The controlled conditions in which a sample is placed during an experiment, including temperature, pressure, and other environmental parameters." [https://als.lbl.gov/beamlines/4-0-2/]
+is_a: LSFO:7770020 ! Experimental apparatus
+relationship: LSFO:7770103 LSFO:7770025 ! has_property Sample environment property
+
+[Term]
+id: LSFO:7770025
+name: Sample environment property
+def: "A measurable characteristic or attribute of a sample environment at a light source facility." []
+is_a: LSFO:0000000 ! root node
+
+[Term]
+id: LSFO:7770026
+name: Temperature control
+def: "A system that maintains samples at specific temperatures during experiments." []
+is_a: LSFO:7770024 ! Sample environment
+
+[Term]
+id: LSFO:7770027
+name: Pressure control
+def: "A system that maintains samples at specific pressure conditions during experiments." []
+is_a: LSFO:7770024 ! Sample environment
+
+[Term]
+id: LSFO:7770028
+name: Photon detector
+def: "A detector that measures properties of photons, such as energy, count, or spatial distribution." []
+is_a: LSFO:7770023 ! Detector
+
+[Term]
+id: LSFO:7770029
+name: Electron detector
+def: "A detector that measures properties of electrons, such as energy or spatial distribution." []
+is_a: LSFO:7770023 ! Detector
+
+[Term]
+id: LSFO:7770030
+name: Spectrometer
+def: "An instrument that measures the spectrum of radiation emitted, absorbed, or scattered by a sample." []
+is_a: LSFO:7770021 ! Instrument
+
 [Typedef]
 id: LSFO:7770101
 name: has_beamline
@@ -112,24 +180,24 @@ range: LSFO:7770008 ! Beamline component
 
 [Typedef]
 id: LSFO:7770105
-name: has_condition
-def: "Relation between an experiment and the experimental conditions." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
+name: has_apparatus
+def: "Relation between an experiment and the apparatus used to conduct it." []
 domain: LSFO:7770001 ! Experiment
-range: LSFO:7770008 ! Experimental condition
+range: LSFO:7770020 ! Experimental apparatus
 
 [Typedef]
 id: LSFO:7770106
-name: has_metadata
-def: "Relation between an experiment and its metadata." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
+name: has_detector
+def: "Relation between an experiment or instrument and a detector used in it." []
 domain: LSFO:7770001 ! Experiment
-range: LSFO:7770009 ! Experiment metadata
+range: LSFO:7770023 ! Detector
 
 [Typedef]
 id: LSFO:7770107
-name: has_output
-def: "Relation between an experiment and the raw data it produces." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
+name: has_sample_environment
+def: "Relation between an experiment and the sample environment used in it." []
 domain: LSFO:7770001 ! Experiment
-range: LSFO:7770010 ! Raw data
+range: LSFO:7770024 ! Sample environment
 
 [Typedef]
 id: LSFO:7770108

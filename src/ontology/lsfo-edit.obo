@@ -20,7 +20,7 @@ is_a: LSFO:0000000 ! root node
 [Term]
 id: LSFO:7770002
 name: Beamline
-def: "An experimental station and its beam delivery system at a light source facility." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/, PMID:28875180]
+def: "An experimental station and its beam delivery system at a light source facility." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
 is_a: LSFO:0000000 ! root node
 relationship: LSFO:7770102 LSFO:7770003 ! has_beam Beam
 relationship: LSFO:7770104 LSFO:7770009 ! has_component Monochromator
@@ -29,7 +29,7 @@ relationship: LSFO:7770104 LSFO:7770010 ! has_component Mirror
 [Term]
 id: LSFO:7770003
 name: Beam
-def: "The radiation beam used in an experiment, with properties like energy and polarization." [https://als.lbl.gov/beamlines/4-0-2/, PMID:25931002]
+def: "The radiation beam used in an experiment, with properties like energy and polarization." [https://als.lbl.gov/beamlines/4-0-2/]
 is_a: LSFO:0000000 ! root node
 relationship: LSFO:7770103 LSFO:7770005 ! has_property Beam energy range
 relationship: LSFO:7770103 LSFO:7770006 ! has_property Beam polarization
@@ -38,44 +38,37 @@ relationship: LSFO:7770103 LSFO:7770007 ! has_property Beam flux
 [Term]
 id: LSFO:7770004
 name: Beam property
-def: "A measurable characteristic or attribute of a beam at a light source facility." [PMID:25931002]
-is_a: LSFO:0000000 ! root node
+def: "A measurable characteristic or attribute of a beam at a light source facility." []
 
 [Term]
 id: LSFO:7770005
 name: Beam energy range
-def: "The range of energies present in a beam, typically measured in electron volts (eV) or kilo-electron volts (keV)." [PMID:25931002]
-is_a: LSFO:7770004 ! Beam property
+def: "The range of energies present in a beam, typically measured in electron volts (eV) or kilo-electron volts (keV)." []
 
 [Term]
 id: LSFO:7770006
 name: Beam polarization
-def: "The orientation of the electric field vector of the electromagnetic radiation in a beam." [PMID:28875180]
-is_a: LSFO:7770004 ! Beam property
+def: "The orientation of the electric field vector of the electromagnetic radiation in a beam." []
 
 [Term]
 id: LSFO:7770007
 name: Beam flux
-def: "The number of photons per second per unit area in a beam, often measured in photons/second/mm²." [PMID:26698070]
-is_a: LSFO:7770004 ! Beam property
+def: "The number of photons per second per unit area in a beam, often measured in photons/second/mm²." []
 
 [Term]
 id: LSFO:7770008
 name: Beamline component
-def: "A physical part or element of a beamline that contributes to the generation, focusing, or manipulation of the beam." [PMID:28875180]
-is_a: LSFO:0000000 ! root node
+def: "A physical part or element of a beamline that contributes to the generation, focusing, or manipulation of the beam." []
 
 [Term]
 id: LSFO:7770009
 name: Monochromator
-def: "A beamline component that selects a specific wavelength or energy range from a polychromatic beam." [PMID:28875180]
-is_a: LSFO:7770008 ! Beamline component
+def: "A beamline component that selects a specific wavelength or energy range from a polychromatic beam." []
 
 [Term]
 id: LSFO:7770010
 name: Mirror
-def: "A beamline component with a reflective surface used to direct, focus, or shape the beam." [PMID:26698070]
-is_a: LSFO:7770008 ! Beamline component
+def: "A beamline component with a reflective surface used to direct, focus, or shape the beam." []
 
 [Term]
 id: LSFO:7770011
@@ -99,21 +92,21 @@ range: LSFO:7770002 ! Beamline
 [Typedef]
 id: LSFO:7770102
 name: has_beam
-def: "Relation between a beamline and the beam it produces." [PMID:25931002]
+def: "Relation between a beamline and the beam it produces." []
 domain: LSFO:7770002 ! Beamline
 range: LSFO:7770003 ! Beam
 
 [Typedef]
 id: LSFO:7770103
 name: has_property
-def: "Relation between a beam and one of its properties." [PMID:25931002]
+def: "Relation between a beam and one of its properties." []
 domain: LSFO:7770003 ! Beam
 range: LSFO:7770004 ! Beam property
 
 [Typedef]
 id: LSFO:7770104
 name: has_component
-def: "Relation between a beamline and one of its physical components." [PMID:28875180]
+def: "Relation between a beamline and one of its physical components." []
 domain: LSFO:7770002 ! Beamline
 range: LSFO:7770008 ! Beamline component
 

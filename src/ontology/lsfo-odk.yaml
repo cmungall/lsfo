@@ -1,0 +1,8 @@
+id: lsfo
+title: Light Source Facility Ontology
+github_org: cmungall
+repo: lsfo
+import_group:
+  products:
+    - id: cob
+edit_format: obo

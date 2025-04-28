@@ -82,6 +82,95 @@ name: Analysis method
 def: "The data analysis or processing method applied to raw data, which produces processed data." [https://pmc.ncbi.nlm.nih.gov/articles/PMC12000454/]
 is_a: LSFO:0000000 ! root node
 
+[Term]
+id: LSFO:7770020
+name: Data
+def: "Information collected during an experiment or observation." [PMID:34190176]
+is_a: LSFO:0000000 \! root node
+
+[Term]
+id: LSFO:7770021
+name: Raw data
+def: "Primary unprocessed data collected directly from instruments or sensors at a light source facility." [PMID:34190176]
+is_a: LSFO:7770020 \! Data
+
+[Term]
+id: LSFO:7770022
+name: Processed data
+def: "Data that has been transformed, filtered, or analyzed from raw data using computational methods." [PMID:34190176]
+is_a: LSFO:7770020 \! Data
+
+[Term]
+id: LSFO:7770023
+name: Analysis method
+def: "A procedure or algorithm used to extract information, derive insights, or transform data obtained from experiments at light source facilities." [PMID:34190176]
+is_a: LSFO:0000000 \! root node
+
+[Term]
+id: LSFO:7770024
+name: Data processing workflow
+def: "A sequence of analysis methods applied to data in a specific order to achieve a research objective." [PMID:32152828]
+is_a: LSFO:0000000 \! root node
+
+[Term]
+id: LSFO:7770025
+name: Data reduction
+def: "An analysis method that reduces the volume or dimensionality of raw data while preserving essential information." [PMID:32152828]
+is_a: LSFO:7770023 \! Analysis method
+
+[Term]
+id: LSFO:7770026
+name: Data filtering
+def: "An analysis method that removes noise, artifacts, or irrelevant information from data." [PMID:32152828]
+is_a: LSFO:7770023 \! Analysis method
+
+[Term]
+id: LSFO:7770027
+name: Data reconstruction
+def: "An analysis method that creates 2D or 3D models from experimental data." [PMID:32152828]
+is_a: LSFO:7770023 \! Analysis method
+
+[Term]
+id: LSFO:7770028
+name: Data visualization
+def: "An analysis method that creates graphical representations of data." [PMID:32152828]
+is_a: LSFO:7770023 \! Analysis method
+
+[Term]
+id: LSFO:7770029
+name: Machine learning analysis
+def: "An analysis method that uses statistical models and algorithms to identify patterns or make predictions from data." [PMID:33483671]
+is_a: LSFO:7770023 \! Analysis method
+
+[Typedef]
+id: LSFO:7770030
+name: has_input
+def: "Relation between an analysis method and the data it uses as input." [PMID:34190176]
+domain: LSFO:7770023 \! Analysis method
+range: LSFO:7770020 \! Data
+
+[Typedef]
+id: LSFO:7770031
+name: has_output
+def: "Relation between an analysis method and the data it produces as output." [PMID:34190176]
+domain: LSFO:7770023 \! Analysis method
+range: LSFO:7770020 \! Data
+
+[Typedef]
+id: LSFO:7770032
+name: part_of_workflow
+def: "Relation between an analysis method and the workflow it belongs to." [PMID:32152828]
+domain: LSFO:7770023 \! Analysis method
+range: LSFO:7770024 \! Data processing workflow
+
+[Typedef]
+id: LSFO:7770033
+name: precedes
+def: "Relation between analysis methods indicating their sequential order in a workflow." [PMID:32152828]
+domain: LSFO:7770023 \! Analysis method
+range: LSFO:7770023 \! Analysis method
+EOF < /dev/null
+
 [Typedef]
 id: LSFO:7770101
 name: has_beamline

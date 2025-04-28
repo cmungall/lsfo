@@ -1,0 +1,30 @@
+format-version: 1.2
+data-version: releases/2025-04-28
+idspace: dc http://purl.org/dc/elements/1.1/ 
+idspace: oboInOwl http://www.geneontology.org/formats/oboInOwl# 
+idspace: terms http://purl.org/dc/terms/ 
+ontology: lsfo
+property_value: owl:versionInfo "2025-04-28" xsd:string
+property_value: terms:description "None" xsd:string
+property_value: terms:license https://creativecommons.org/licenses/unspecified
+property_value: terms:title "Light Source Facility Ontology" xsd:string
+
+[Term]
+id: LSFO:0000000
+name: root node
+
+[Typedef]
+id: terms:description
+name: description
+is_metadata_tag: true
+
+[Typedef]
+id: terms:license
+name: license
+is_metadata_tag: true
+
+[Typedef]
+id: terms:title
+name: title
+is_metadata_tag: true
+
